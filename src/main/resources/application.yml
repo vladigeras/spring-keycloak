@@ -1,1 +1,8 @@
+server:
+  port: 8081
 
+keycloak:
+  auth-server-url: http://localhost:8080/auth
+  realm: spring
+  resource: spring-client
+  public-client: true
