@@ -24,6 +24,7 @@ public class UserController {
         return "User info";
     }
 
+    // not working with ROLE_ADMIN, because by default authorities creates from SCOPE_ in this case
     @GetMapping("/admin")
     @PreAuthorize("hasRole('ADMIN')")
     public String getAdminInfo() {
@@ -38,7 +39,7 @@ public class UserController {
     }
 
     @GetMapping("/me")
-    public Object getMe(Authentication authentication) {
-        return authentication.getName();
+    public Authentication getMe(Authentication authentication) {
+        return authentication;
     }
 }
